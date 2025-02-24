@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification Reminder</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>Enable Notifications</h2>
+        <button onclick="requestNotification()">Enable Reminder</button>
+    </div>
+
+    <script>
+        function requestNotification() {
+            if ('Notification' in window) {
+                Notification.requestPermission().then(permission => {
+                    if (permission === "granted") {
+                        scheduleNotification();
+                    }
+                });
+            } else {
+                alert("Notifications are not supported in your browser.");
+            }
+        }
+
+        function scheduleNotification() {
+            setTimeout(() => {
+                new Notification("Hoy!", {
+                    body: "hehehehehhehehehheheehahahahahahahahatryyylangitooooooooooooooooooo",
+                    icon: "https://via.placeholder.com/128" // Change to your icon
+                });
+            }, 1000); // Notify after 5 seconds
+        }
+    </script>
+</body>
+</html>
